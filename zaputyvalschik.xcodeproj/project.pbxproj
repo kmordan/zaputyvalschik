@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1F463331E607EBC003BF967 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F463321E607EBC003BF967 /* main.m */; };
+		A1F463761E63527D003BF967 /* zaputyvalschikUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F463751E63527D003BF967 /* zaputyvalschikUnitTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +26,20 @@
 /* Begin PBXFileReference section */
 		A1F4632F1E607EBC003BF967 /* zaputyvalschik */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = zaputyvalschik; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F463321E607EBC003BF967 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A1F463731E63527D003BF967 /* zaputyvalschikUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zaputyvalschikUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1F463751E63527D003BF967 /* zaputyvalschikUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zaputyvalschikUnitTests.m; sourceTree = "<group>"; };
+		A1F463771E63527D003BF967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A1F4632C1E607EBC003BF967 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1F463701E63527D003BF967 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F463311E607EBC003BF967 /* zaputyvalschik */,
+				A1F463741E63527D003BF967 /* zaputyvalschikUnitTests */,
 				A1F463301E607EBC003BF967 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F4632F1E607EBC003BF967 /* zaputyvalschik */,
+				A1F463731E63527D003BF967 /* zaputyvalschikUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +73,15 @@
 				A1F463321E607EBC003BF967 /* main.m */,
 			);
 			path = zaputyvalschik;
+			sourceTree = "<group>";
+		};
+		A1F463741E63527D003BF967 /* zaputyvalschikUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1F463751E63527D003BF967 /* zaputyvalschikUnitTests.m */,
+				A1F463771E63527D003BF967 /* Info.plist */,
+			);
+			path = zaputyvalschikUnitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +104,23 @@
 			productReference = A1F4632F1E607EBC003BF967 /* zaputyvalschik */;
 			productType = "com.apple.product-type.tool";
 		};
+		A1F463721E63527D003BF967 /* zaputyvalschikUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1F4637A1E63527D003BF967 /* Build configuration list for PBXNativeTarget "zaputyvalschikUnitTests" */;
+			buildPhases = (
+				A1F4636F1E63527D003BF967 /* Sources */,
+				A1F463701E63527D003BF967 /* Frameworks */,
+				A1F463711E63527D003BF967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = zaputyvalschikUnitTests;
+			productName = zaputyvalschikUnitTests;
+			productReference = A1F463731E63527D003BF967 /* zaputyvalschikUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -92,6 +131,11 @@
 				ORGANIZATIONNAME = "Konstantin Mordan";
 				TargetAttributes = {
 					A1F4632E1E607EBC003BF967 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ZY94442MK5;
+						ProvisioningStyle = Automatic;
+					};
+					A1F463721E63527D003BF967 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = ZY94442MK5;
 						ProvisioningStyle = Automatic;
@@ -111,9 +155,20 @@
 			projectRoot = "";
 			targets = (
 				A1F4632E1E607EBC003BF967 /* zaputyvalschik */,
+				A1F463721E63527D003BF967 /* zaputyvalschikUnitTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1F463711E63527D003BF967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1F4632B1E607EBC003BF967 /* Sources */ = {
@@ -121,6 +176,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F463331E607EBC003BF967 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1F4636F1E63527D003BF967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1F463761E63527D003BF967 /* zaputyvalschikUnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +293,30 @@
 			};
 			name = Release;
 		};
+		A1F463781E63527D003BF967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZY94442MK5;
+				INFOPLIST_FILE = zaputyvalschikUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = km.zaputyvalschikUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A1F463791E63527D003BF967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZY94442MK5;
+				INFOPLIST_FILE = zaputyvalschikUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = km.zaputyvalschikUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -247,6 +334,15 @@
 			buildConfigurations = (
 				A1F463371E607EBC003BF967 /* Debug */,
 				A1F463381E607EBC003BF967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1F4637A1E63527D003BF967 /* Build configuration list for PBXNativeTarget "zaputyvalschikUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1F463781E63527D003BF967 /* Debug */,
+				A1F463791E63527D003BF967 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
