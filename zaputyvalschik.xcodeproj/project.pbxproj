@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A1F463331E607EBC003BF967 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F463321E607EBC003BF967 /* main.m */; };
 		A1F463761E63527D003BF967 /* zaputyvalschikUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F463751E63527D003BF967 /* zaputyvalschikUnitTests.m */; };
+		A1F4637E1E635421003BF967 /* ObfuscatedKeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F4637D1E635421003BF967 /* ObfuscatedKeyFactory.m */; };
+		A1F4637F1E635421003BF967 /* ObfuscatedKeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F4637D1E635421003BF967 /* ObfuscatedKeyFactory.m */; };
+		A1F463821E635540003BF967 /* ObfuscatedKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F463811E635540003BF967 /* ObfuscatedKeyFactoryTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,9 @@
 		A1F463731E63527D003BF967 /* zaputyvalschikUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zaputyvalschikUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F463751E63527D003BF967 /* zaputyvalschikUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zaputyvalschikUnitTests.m; sourceTree = "<group>"; };
 		A1F463771E63527D003BF967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1F4637C1E635421003BF967 /* ObfuscatedKeyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObfuscatedKeyFactory.h; sourceTree = "<group>"; };
+		A1F4637D1E635421003BF967 /* ObfuscatedKeyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObfuscatedKeyFactory.m; sourceTree = "<group>"; };
+		A1F463811E635540003BF967 /* ObfuscatedKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObfuscatedKeyFactoryTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 		A1F463311E607EBC003BF967 /* zaputyvalschik */ = {
 			isa = PBXGroup;
 			children = (
+				A1F4637B1E63540F003BF967 /* ObfuscatedKeyFactory */,
 				A1F463321E607EBC003BF967 /* main.m */,
 			);
 			path = zaputyvalschik;
@@ -78,10 +85,28 @@
 		A1F463741E63527D003BF967 /* zaputyvalschikUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				A1F463801E635522003BF967 /* ObfuscatedKeyFactoryTests */,
 				A1F463751E63527D003BF967 /* zaputyvalschikUnitTests.m */,
 				A1F463771E63527D003BF967 /* Info.plist */,
 			);
 			path = zaputyvalschikUnitTests;
+			sourceTree = "<group>";
+		};
+		A1F4637B1E63540F003BF967 /* ObfuscatedKeyFactory */ = {
+			isa = PBXGroup;
+			children = (
+				A1F4637C1E635421003BF967 /* ObfuscatedKeyFactory.h */,
+				A1F4637D1E635421003BF967 /* ObfuscatedKeyFactory.m */,
+			);
+			path = ObfuscatedKeyFactory;
+			sourceTree = "<group>";
+		};
+		A1F463801E635522003BF967 /* ObfuscatedKeyFactoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1F463811E635540003BF967 /* ObfuscatedKeyFactoryTests.m */,
+			);
+			path = ObfuscatedKeyFactoryTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F4637E1E635421003BF967 /* ObfuscatedKeyFactory.m in Sources */,
 				A1F463331E607EBC003BF967 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +209,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F4637F1E635421003BF967 /* ObfuscatedKeyFactory.m in Sources */,
+				A1F463821E635540003BF967 /* ObfuscatedKeyFactoryTests.m in Sources */,
 				A1F463761E63527D003BF967 /* zaputyvalschikUnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
