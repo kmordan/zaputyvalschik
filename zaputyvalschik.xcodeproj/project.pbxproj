@@ -10,6 +10,8 @@
 		0FBF7A621E6C8928003B9BC9 /* DeobfuscatedKeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBF7A611E6C8928003B9BC9 /* DeobfuscatedKeyFactory.m */; };
 		0FBF7A631E6C8928003B9BC9 /* DeobfuscatedKeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBF7A611E6C8928003B9BC9 /* DeobfuscatedKeyFactory.m */; };
 		0FBF7A661E6C8AD0003B9BC9 /* DeobfuscatedKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBF7A651E6C8AD0003B9BC9 /* DeobfuscatedKeyFactoryTests.m */; };
+		0FBF7A6B1E6CA2B0003B9BC9 /* Obfuscator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBF7A6A1E6CA2B0003B9BC9 /* Obfuscator.m */; };
+		0FBF7A6C1E6CA2B0003B9BC9 /* Obfuscator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBF7A6A1E6CA2B0003B9BC9 /* Obfuscator.m */; };
 		A1F463331E607EBC003BF967 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F463321E607EBC003BF967 /* main.m */; };
 		A1F463761E63527D003BF967 /* zaputyvalschikUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F463751E63527D003BF967 /* zaputyvalschikUnitTests.m */; };
 		A1F4637E1E635421003BF967 /* ObfuscatedKeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F4637D1E635421003BF967 /* ObfuscatedKeyFactory.m */; };
@@ -33,6 +35,8 @@
 		0FBF7A601E6C8928003B9BC9 /* DeobfuscatedKeyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeobfuscatedKeyFactory.h; sourceTree = "<group>"; };
 		0FBF7A611E6C8928003B9BC9 /* DeobfuscatedKeyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeobfuscatedKeyFactory.m; sourceTree = "<group>"; };
 		0FBF7A651E6C8AD0003B9BC9 /* DeobfuscatedKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeobfuscatedKeyFactoryTests.m; sourceTree = "<group>"; };
+		0FBF7A691E6CA2B0003B9BC9 /* Obfuscator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obfuscator.h; sourceTree = "<group>"; };
+		0FBF7A6A1E6CA2B0003B9BC9 /* Obfuscator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obfuscator.m; sourceTree = "<group>"; };
 		A1F4632F1E607EBC003BF967 /* zaputyvalschik */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = zaputyvalschik; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F463321E607EBC003BF967 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1F463731E63527D003BF967 /* zaputyvalschikUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zaputyvalschikUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +82,15 @@
 			path = DeobfuscatedKeyFactoryTests;
 			sourceTree = "<group>";
 		};
+		0FBF7A681E6CA299003B9BC9 /* Obfuscator */ = {
+			isa = PBXGroup;
+			children = (
+				0FBF7A691E6CA2B0003B9BC9 /* Obfuscator.h */,
+				0FBF7A6A1E6CA2B0003B9BC9 /* Obfuscator.m */,
+			);
+			path = Obfuscator;
+			sourceTree = "<group>";
+		};
 		A1F463261E607EBC003BF967 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +112,7 @@
 		A1F463311E607EBC003BF967 /* zaputyvalschik */ = {
 			isa = PBXGroup;
 			children = (
+				0FBF7A681E6CA299003B9BC9 /* Obfuscator */,
 				A1F4637B1E63540F003BF967 /* ObfuscatedKeyFactory */,
 				0FBF7A5F1E6C8918003B9BC9 /* DeobfuscatedKeyFactory */,
 				A1F463321E607EBC003BF967 /* main.m */,
@@ -228,6 +242,7 @@
 				A1F4637E1E635421003BF967 /* ObfuscatedKeyFactory.m in Sources */,
 				A1F463331E607EBC003BF967 /* main.m in Sources */,
 				0FBF7A621E6C8928003B9BC9 /* DeobfuscatedKeyFactory.m in Sources */,
+				0FBF7A6B1E6CA2B0003B9BC9 /* Obfuscator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F4637F1E635421003BF967 /* ObfuscatedKeyFactory.m in Sources */,
+				0FBF7A6C1E6CA2B0003B9BC9 /* Obfuscator.m in Sources */,
 				0FBF7A631E6C8928003B9BC9 /* DeobfuscatedKeyFactory.m in Sources */,
 				A1F463821E635540003BF967 /* ObfuscatedKeyFactoryTests.m in Sources */,
 				A1F463761E63527D003BF967 /* zaputyvalschikUnitTests.m in Sources */,

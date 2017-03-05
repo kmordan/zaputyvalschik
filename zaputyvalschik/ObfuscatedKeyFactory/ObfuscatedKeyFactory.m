@@ -7,8 +7,7 @@
 //
 
 #import "ObfuscatedKeyFactory.h"
-
-#import <CommonCrypto/CommonDigest.h>
+#import "Obfuscator.h"
 
 @implementation ObfuscatedKeyFactory
 
@@ -20,29 +19,17 @@
     const unsigned char *cStringKey = (const unsigned char *)[key cStringUsingEncoding:NSUTF8StringEncoding];
     
     unsigned char *obfuscatedKey = (unsigned char *)cStringKey;
-    unsigned char *xorResult = NULL;
+    unsigned char *obfuscationTempResult = NULL;
     
     for (NSString *seed in seeds) {
-        xorResult = performXorOnKeyAndSeed(obfuscatedKey, seed, size);
-        obfuscatedKey = xorResult;
-        free(xorResult);
+        obfuscationTempResult = [Obfuscator mixKey:obfuscatedKey
+                                            ofSize:size
+                                          withSeed:seed];
+        obfuscatedKey = obfuscationTempResult;
+        free(obfuscationTempResult);
     }
     
     return obfuscatedKey;
-}
-
-unsigned char * performXorOnKeyAndSeed(unsigned char key[], NSString *seed, unsigned long size) {
-    unsigned char *result = malloc(size);
-    unsigned char md[CC_SHA1_DIGEST_LENGTH];
-    
-    NSData *seedData = [seed dataUsingEncoding:NSUTF8StringEncoding];
-    CC_SHA1(seedData.bytes, (CC_LONG)seedData.length, md);
-    
-    for (unsigned long i = 0; i < size; i++) {
-        result[i] = key[i] ^ md[i % sizeof(md)];
-    }
-    
-    return result;
 }
 
 @end
