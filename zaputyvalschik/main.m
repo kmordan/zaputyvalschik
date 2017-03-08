@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
         NSString *key = @"sensitive_key";
         NSArray<NSString *> *seeds = @[@"firstKey", @"secondKey"];
         
-        unsigned long obfuscatedKeySize = key.length + 1u;
+        unsigned long obfuscatedKeySize = key.length;
         
         unsigned char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
                                                                 withSeeds:seeds];

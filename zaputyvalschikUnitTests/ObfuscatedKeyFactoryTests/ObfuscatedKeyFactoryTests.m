@@ -36,7 +36,7 @@
     NSArray<NSString *> *seeds = @[@"firstKey", @"secondKey"];
     
     unsigned char expectedObfuscatedKey[] = {0xf0, 0x39, 0xae, 0x87, 0xd8, 0x17, 0x86,
-                                             0x56, 0xa3, 0x0e, 0xfd, 0xd4, 0xba, 0x76};
+                                             0x56, 0xa3, 0x0e, 0xfd, 0xd4, 0xba};
     
     // when
     unsigned char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
