@@ -14,20 +14,27 @@
 + (NSString *)deobfuscateKey:(unsigned char *)key
                       ofSize:(unsigned long)size
                    withSeeds:(NSArray<NSString *> *)seeds {
-    unsigned char *deobfuscatedKey = key;
+    unsigned char *deobfuscatedKey = malloc(size);
+    memcpy(deobfuscatedKey, key, size);
+    
     unsigned char *deobfuscationTempResult = NULL;
     
     for (NSString *seed in seeds) {
         deobfuscationTempResult = [Obfuscator mixKey:deobfuscatedKey
                                               ofSize:size
                                             withSeed:seed];
-        deobfuscatedKey = deobfuscationTempResult;
+        
+        memcpy(deobfuscatedKey, deobfuscationTempResult, size);
+        
         free(deobfuscationTempResult);
     }
-    
+
     NSString *result = [[NSString alloc] initWithBytes:deobfuscatedKey
                                                 length:size
                                               encoding:NSUTF8StringEncoding];
+    
+    free(deobfuscatedKey);
+    
     return result;
 }
 

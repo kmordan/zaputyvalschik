@@ -15,7 +15,7 @@
                    ofSize:(unsigned long)size
                  withSeed:(NSString *)seed {
     unsigned char *result = malloc(size);
-    unsigned char md[CC_SHA1_DIGEST_LENGTH];
+    unsigned char md[CC_SHA1_DIGEST_LENGTH] = {0};
     
     NSData *seedData = [seed dataUsingEncoding:NSUTF8StringEncoding];
     CC_SHA1(seedData.bytes, (CC_LONG)seedData.length, md);
