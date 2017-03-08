@@ -13,19 +13,21 @@
 
 + (unsigned char *)obfuscateKey:(NSString *)key
                       withSeeds:(NSArray<NSString *> *)seeds {
-    NSUInteger length = key.length;
-    unsigned long size = length * sizeof(unsigned char);
+    NSUInteger nullTerminatedStringLength = key.length + 1u;
+    unsigned long size = nullTerminatedStringLength * sizeof(unsigned char);
     
-    const unsigned char *cStringKey = (const unsigned char *)[key cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cStringKey = [key cStringUsingEncoding:NSUTF8StringEncoding];
     
-    unsigned char *obfuscatedKey = (unsigned char *)cStringKey;
+    unsigned char *obfuscatedKey = malloc(size);
+    memcpy(obfuscatedKey, cStringKey, size);
+    
     unsigned char *obfuscationTempResult = NULL;
     
     for (NSString *seed in seeds) {
         obfuscationTempResult = [Obfuscator mixKey:obfuscatedKey
                                             ofSize:size
                                           withSeed:seed];
-        obfuscatedKey = obfuscationTempResult;
+        memcpy(obfuscatedKey, obfuscationTempResult, size);
         free(obfuscationTempResult);
     }
     
