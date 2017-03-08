@@ -16,20 +16,21 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSString *key = @"sensitive_key";
         NSArray<NSString *> *seeds = @[@"firstKey", @"secondKey"];
+        NSArray<NSString *> *reversedSeeds = [[seeds reverseObjectEnumerator] allObjects];
         
-        unsigned long obfuscatedKeySize = key.length;
+        const char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
+                                                             withSeeds:seeds];
         
-        unsigned char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
-                                                                withSeeds:seeds];
         [Printer printObfuscatedKey:obfuscatedKey
-                             ofSize:obfuscatedKeySize
                      usingSeparator:@", "];
         
         NSString *deobfuscatedKey = [DeobfuscatedKeyFactory deobfuscateKey:obfuscatedKey
-                                                                    ofSize:obfuscatedKeySize
-                                                                 withSeeds:[[seeds reverseObjectEnumerator] allObjects]];
+                                                                 withSeeds:reversedSeeds];
+                                     
         NSLog(@"Your deobfuscated key: %@", deobfuscatedKey);
         
+        free((char *)obfuscatedKey);
     }
+    
     return 0;
 }

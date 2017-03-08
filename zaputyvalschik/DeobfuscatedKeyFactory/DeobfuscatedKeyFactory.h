@@ -10,8 +10,7 @@
 
 @interface DeobfuscatedKeyFactory : NSObject
 
-+ (NSString *)deobfuscateKey:(unsigned char *)key
-                      ofSize:(unsigned long)size
++ (NSString *)deobfuscateKey:(const char *)key
                    withSeeds:(NSArray<NSString *> *)seeds;
 
 @end

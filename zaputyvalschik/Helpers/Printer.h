@@ -10,8 +10,7 @@
 
 @interface Printer : NSObject
 
-+ (void)printObfuscatedKey:(unsigned char *)key
-                    ofSize:(unsigned long )size
++ (void)printObfuscatedKey:(const char *)key
             usingSeparator:(NSString *)separator;
 
 @end

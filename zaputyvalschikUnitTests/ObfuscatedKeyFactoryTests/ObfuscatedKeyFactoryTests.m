@@ -39,13 +39,13 @@
                                           0x56, 0xa3, 0x0e, 0xfd, 0xd4, 0xba};
     
     // when
-    unsigned char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
-                                                            withSeeds:seeds];
+    const char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
+                                                         withSeeds:seeds];
     
     // then
     int cmpResult = strcmp(expectedObfuscatedKey, obfuscatedKey);
     
-    free(obfuscatedKey);
+    free((char *)obfuscatedKey);
     
     XCTAssertTrue(cmpResult == 0);
 }

@@ -10,13 +10,14 @@
 
 @implementation Printer
 
-+ (void)printObfuscatedKey:(unsigned char *)key
-                    ofSize:(unsigned long)size
++ (void)printObfuscatedKey:(const char *)key
             usingSeparator:(NSString *)separator {
+    size_t size = strlen(key);
+    
     NSMutableString *result = [NSMutableString new];
     
     for(NSUInteger i = 0u; i < size; i++) {
-        [result appendFormat:@"0x%02x", key[i]];
+        [result appendFormat:@"0x%hhx", key[i]];
         
         BOOL shouldAppendSeparator = (i < size - 1u);
         if (shouldAppendSeparator == YES) {

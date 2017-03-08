@@ -10,8 +10,7 @@
 
 @interface Obfuscator : NSObject
 
-+ (unsigned char *)mixKey:(unsigned char *)key
-                   ofSize:(unsigned long)size
-                 withSeed:(NSString *)seed;
++ (char *)mixKey:(const char *)key
+        withSeed:(NSString *)seed;
 
 @end

@@ -31,16 +31,14 @@
 
 - (void)testDeobfuscateKeyOfSizeWithSeeds_returnsCorrectDeobfuscatedKey {
     // given
-    unsigned char obfuscatedKey[] = {0xf0, 0x39, 0xae, 0x87, 0xd8, 0x17, 0x86,
-                                     0x56, 0xa3, 0x0e, 0xfd, 0xd4, 0xba};
-    unsigned long size = sizeof(obfuscatedKey);
+    const char obfuscatedKey[] = {0xf0, 0x39, 0xae, 0x87, 0xd8, 0x17, 0x86,
+                                  0x56, 0xa3, 0x0e, 0xfd, 0xd4, 0xba};
     NSArray<NSString *> *seeds = @[@"secondKey", @"firstKey"];
     
     NSString *expectedDeobfuscateKey = @"sensitive_key";
 
     // when
     NSString *deobfuscateKey = [DeobfuscatedKeyFactory deobfuscateKey:obfuscatedKey
-                                                               ofSize:size
                                                             withSeeds:seeds];
     // then
     XCTAssertEqualObjects(expectedDeobfuscateKey, deobfuscateKey);

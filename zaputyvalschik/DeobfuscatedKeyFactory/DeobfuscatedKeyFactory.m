@@ -11,26 +11,25 @@
 
 @implementation DeobfuscatedKeyFactory
 
-+ (NSString *)deobfuscateKey:(unsigned char *)key
-                      ofSize:(unsigned long)size
++ (NSString *)deobfuscateKey:(const char *)key
                    withSeeds:(NSArray<NSString *> *)seeds {
-    unsigned char *deobfuscatedKey = malloc(size);
-    memcpy(deobfuscatedKey, key, size);
+    size_t nullTerminatedKeySize = strlen(key);
+
+    char *deobfuscatedKey = malloc(nullTerminatedKeySize);
+    strcpy(deobfuscatedKey, key);
     
-    unsigned char *deobfuscationTempResult = NULL;
+    char *deobfuscationTempResult = NULL;
     
     for (NSString *seed in seeds) {
-        deobfuscationTempResult = [Obfuscator mixKey:deobfuscatedKey
-                                              ofSize:size
+        deobfuscationTempResult = [Obfuscator mixKey:(const char *)deobfuscatedKey
                                             withSeed:seed];
-        
-        memcpy(deobfuscatedKey, deobfuscationTempResult, size);
+        strcpy(deobfuscatedKey, deobfuscationTempResult);
         
         free(deobfuscationTempResult);
     }
 
     NSString *result = [[NSString alloc] initWithBytes:deobfuscatedKey
-                                                length:size
+                                                length:nullTerminatedKeySize
                                               encoding:NSUTF8StringEncoding];
     
     free(deobfuscatedKey);
