@@ -43,7 +43,7 @@
                                                                ofSize:size
                                                             withSeeds:seeds];
     // then
-    XCTAssertEqual(expectedDeobfuscateKey, deobfuscateKey);
+    XCTAssertEqualObjects(expectedDeobfuscateKey, deobfuscateKey);
 }
 
 @end
