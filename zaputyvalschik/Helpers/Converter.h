@@ -1,5 +1,5 @@
 //
-//  Printer.h
+//  Converter.h
 //  zaputyvalschik
 //
 //  Created by Konstantin Mordan on 08/03/2017.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Printer : NSObject
+@interface Converter : NSObject
 
-+ (void)printObfuscatedKey:(const char *)key
-            usingSeparator:(NSString *)separator;
++ (NSString *)convertCharArray:(const char *)array
+     toHexStringUsingSeparator:(NSString *)separator;
 
 @end

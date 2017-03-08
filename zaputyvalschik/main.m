@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Printer.h"
+#import "Converter.h"
 #import "ObfuscatedKeyFactory.h"
 #import "DeobfuscatedKeyFactory.h"
 
@@ -20,9 +20,10 @@ int main(int argc, const char * argv[]) {
         
         const char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
                                                              withSeeds:seeds];
+
         
-        [Printer printObfuscatedKey:obfuscatedKey
-                     usingSeparator:@", "];
+        NSLog(@"Your obfuscated key: %@", [Converter convertCharArray:obfuscatedKey
+                                            toHexStringUsingSeparator:@", "]);
         
         NSString *deobfuscatedKey = [DeobfuscatedKeyFactory deobfuscateKey:obfuscatedKey
                                                                  withSeeds:reversedSeeds];

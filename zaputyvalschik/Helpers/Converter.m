@@ -1,23 +1,23 @@
 //
-//  Printer.m
+//  Converter.m
 //  zaputyvalschik
 //
 //  Created by Konstantin Mordan on 08/03/2017.
 //  Copyright © 2017 Konstantin Mordan. All rights reserved.
 //
 
-#import "Printer.h"
+#import "Converter.h"
 
-@implementation Printer
+@implementation Converter
 
-+ (void)printObfuscatedKey:(const char *)key
-            usingSeparator:(NSString *)separator {
-    size_t size = strlen(key);
++ (NSString *)convertCharArray:(const char *)array
+     toHexStringUsingSeparator:(NSString *)separator {
+    size_t size = strlen(array);
     
     NSMutableString *result = [NSMutableString new];
     
     for(NSUInteger i = 0u; i < size; i++) {
-        [result appendFormat:@"0x%hhx", key[i]];
+        [result appendFormat:@"0x%hhx", array[i]];
         
         BOOL shouldAppendSeparator = (i < size - 1u);
         if (shouldAppendSeparator == YES) {
@@ -25,7 +25,7 @@
         }
     }
     
-    NSLog(@"Your obfuscated key: %@", result);
+    return [result copy];
 }
 
 @end
