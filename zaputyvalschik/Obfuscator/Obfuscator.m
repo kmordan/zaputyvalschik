@@ -14,7 +14,9 @@
 + (unsigned char *)mixKey:(unsigned char *)key
                    ofSize:(unsigned long)size
                  withSeed:(NSString *)seed {
-    unsigned char *result = malloc(size);
+    unsigned long nullTerminatedResultSize = size + 1;
+    
+    unsigned char *result = malloc(nullTerminatedResultSize);
     unsigned char md[CC_SHA1_DIGEST_LENGTH] = {0};
     
     NSData *seedData = [seed dataUsingEncoding:NSUTF8StringEncoding];
