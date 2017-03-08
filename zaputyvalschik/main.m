@@ -8,10 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Printer.h"
+#import "ObfuscatedKeyFactory.h"
+#import "DeobfuscatedKeyFactory.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        NSString *key = @"sensitive_key";
+        NSArray<NSString *> *seeds = @[@"firstKey", @"secondKey"];
+        
+        unsigned long obfuscatedKeySize = key.length + 1u;
+        
+        unsigned char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
+                                                                withSeeds:seeds];
+        [Printer printObfuscatedKey:obfuscatedKey
+                             ofSize:obfuscatedKeySize
+                     usingSeparator:@", "];
+        
+        NSString *deobfuscatedKey = [DeobfuscatedKeyFactory deobfuscateKey:obfuscatedKey
+                                                                    ofSize:obfuscatedKeySize
+                                                                 withSeeds:[[seeds reverseObjectEnumerator] allObjects]];
+        NSLog(@"Your deobfuscated key: %@", deobfuscatedKey);
+        
     }
     return 0;
 }
