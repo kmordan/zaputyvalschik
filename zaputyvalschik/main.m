@@ -20,18 +20,19 @@ int main(int argc, const char * argv[]) {
         
         const char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
                                                              withSeeds:seeds];
-
         
-        NSLog(@"Your obfuscated key: %@", [Converter convertCharArray:obfuscatedKey
-                                            toHexStringUsingSeparator:@", "]);
+        NSString *convertedToStringObfuscatedKey = [Converter convertCharArray:obfuscatedKey
+                                                     toHexStringUsingSeparator:@", "];
         
         NSString *deobfuscatedKey = [DeobfuscatedKeyFactory deobfuscateKey:obfuscatedKey
                                                                  withSeeds:reversedSeeds];
-                                     
-        NSLog(@"Your deobfuscated key: %@", deobfuscatedKey);
+
+        NSLog(@"\n\nYour obfuscated key is: \n\n%@"
+              @"\n\nYour deobfuscated key was: \n\n%@"
+              @"\n\n👊", convertedToStringObfuscatedKey, deobfuscatedKey);
         
         free((char *)obfuscatedKey);
     }
-    
+
     return 0;
 }
