@@ -16,7 +16,6 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSString *key = @"sensitive_key";
         NSArray<NSString *> *seeds = @[@"firstKey", @"secondKey"];
-        NSArray<NSString *> *reversedSeeds = [[seeds reverseObjectEnumerator] allObjects];
         
         const char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
                                                              withSeeds:seeds];
@@ -25,7 +24,7 @@ int main(int argc, const char * argv[]) {
                                                      toHexStringUsingSeparator:@", "];
         
         NSString *deobfuscatedKey = [DeobfuscatedKeyFactory deobfuscateKey:obfuscatedKey
-                                                                 withSeeds:reversedSeeds];
+                                                                 withSeeds:seeds];
 
         NSLog(@"\n\nYour obfuscated key is: \n\n%@"
               @"\n\nYour deobfuscated key was: \n\n%@"
