@@ -8,8 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ @author Konstantin Mordan
+ 
+ Factory provides obfuscated key
+ */
 @interface ObfuscatedKeyFactory : NSObject
 
+/**
+ @author Konstantin Mordan
+ 
+ Method returns obfuscated key
+ 
+ @param key   Original key
+ @param seeds Array of seeds with which original key will be obfuscated
+ @return      Obfuscated key
+ */
 + (const char *)obfuscateKey:(NSString *)key
                    withSeeds:(NSArray<NSString *> *)seeds;
 
