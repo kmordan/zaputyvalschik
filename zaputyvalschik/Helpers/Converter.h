@@ -10,7 +10,8 @@
 
 @interface Converter : NSObject
 
-+ (NSString *)convertCharArray:(const char *)array
++ (NSString *)convertCharArray:(const unsigned char *)array
+                        ofSize:(size_t)size
      toHexStringUsingSeparator:(NSString *)separator;
 
 @end

@@ -10,14 +10,14 @@
 
 @implementation Converter
 
-+ (NSString *)convertCharArray:(const char *)array
++ (NSString *)convertCharArray:(const unsigned char *)array
+                        ofSize:(size_t)size
      toHexStringUsingSeparator:(NSString *)separator {
-    size_t size = strlen(array);
     
     NSMutableString *result = [NSMutableString new];
     
     for(NSUInteger i = 0u; i < size; i++) {
-        [result appendFormat:@"0x%hhx", array[i]];
+        [result appendFormat:@"0x%02x", array[i]];
         
         BOOL shouldAppendSeparator = (i < size - 1u);
         if (shouldAppendSeparator == YES) {

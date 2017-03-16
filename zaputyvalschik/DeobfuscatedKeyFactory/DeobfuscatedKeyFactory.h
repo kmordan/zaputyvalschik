@@ -24,7 +24,8 @@
  @param seeds Array of seeds with which original key was obfuscated
  @return      Deobfuscated key
  */
-+ (NSString *)deobfuscateKey:(const char *)key
++ (NSString *)deobfuscateKey:(const unsigned char *)key
+                      ofSize:(size_t)size
                    withSeeds:(NSArray<NSString *> *)seeds;
 
 @end

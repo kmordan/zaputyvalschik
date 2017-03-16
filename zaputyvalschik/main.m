@@ -17,13 +17,17 @@ int main(int argc, const char * argv[]) {
         NSString *key = @"sensitive_key";
         NSArray<NSString *> *seeds = @[@"firstKey", @"secondKey"];
         
-        const char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
-                                                             withSeeds:seeds];
+        size_t size = strlen([key cStringUsingEncoding:NSUTF8StringEncoding]);
+        
+        const unsigned char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
+                                                                      withSeeds:seeds];
         
         NSString *convertedToStringObfuscatedKey = [Converter convertCharArray:obfuscatedKey
+                                                                        ofSize:size
                                                      toHexStringUsingSeparator:@", "];
         
         NSString *deobfuscatedKey = [DeobfuscatedKeyFactory deobfuscateKey:obfuscatedKey
+                                                                    ofSize:size
                                                                  withSeeds:seeds];
 
         NSLog(@"\n\nYour obfuscated key is: \n\n%@"

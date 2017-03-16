@@ -35,15 +35,15 @@
     NSString *key = @"sensitive_key";
     NSArray<NSString *> *seeds = @[@"firstKey", @"secondKey"];
     
-    const char expectedObfuscatedKey[] = {0xf0, 0x39, 0xae, 0x87, 0xd8, 0x17, 0x86,
-                                          0x56, 0xa3, 0x0e, 0xfd, 0xd4, 0xba};
+    const unsigned char expectedObfuscatedKey[] = {0xf0, 0x39, 0xae, 0x87, 0xd8, 0x17, 0x86,
+                                                   0x56, 0xa3, 0x0e, 0xfd, 0xd4, 0xba};
     
     // when
-    const char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
-                                                         withSeeds:seeds];
+    const unsigned char *obfuscatedKey = [ObfuscatedKeyFactory obfuscateKey:key
+                                                                  withSeeds:seeds];
     
     // then
-    int cmpResult = strcmp(expectedObfuscatedKey, obfuscatedKey);
+    int cmpResult = memcmp(expectedObfuscatedKey, obfuscatedKey, sizeof(expectedObfuscatedKey));
     
     free((char *)obfuscatedKey);
     

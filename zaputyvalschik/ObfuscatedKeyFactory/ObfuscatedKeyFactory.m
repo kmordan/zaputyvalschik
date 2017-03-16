@@ -11,25 +11,26 @@
 
 @implementation ObfuscatedKeyFactory
 
-+ (const char *)obfuscateKey:(NSString *)key
-                   withSeeds:(NSArray<NSString *> *)seeds {
++ (const unsigned char *)obfuscateKey:(NSString *)key
+                            withSeeds:(NSArray<NSString *> *)seeds {
     const char *cStringKey = [key cStringUsingEncoding:NSUTF8StringEncoding];
     
     size_t nullTerminatedKeySize = strlen(cStringKey) + 1;
+
+    unsigned char *obfuscatedKey = malloc(nullTerminatedKeySize);
+    memcpy(obfuscatedKey, cStringKey, nullTerminatedKeySize);
     
-    char *obfuscatedKey = malloc(nullTerminatedKeySize);
-    strcpy(obfuscatedKey, cStringKey);
-    
-    char *obfuscationTempResult = NULL;
+    unsigned char *obfuscationTempResult = NULL;
     
     for (NSString *seed in seeds) {
-        obfuscationTempResult = [Obfuscator mixKey:(const char *)obfuscatedKey
+        obfuscationTempResult = [Obfuscator mixKey:(const unsigned char *)obfuscatedKey
+                                            ofSize:nullTerminatedKeySize - 1
                                           withSeed:seed];
-        strcpy(obfuscatedKey, obfuscationTempResult);
+        memcpy(obfuscatedKey, obfuscationTempResult, nullTerminatedKeySize);
         free(obfuscationTempResult);
     }
     
-    return (const char *)obfuscatedKey;
+    return (const unsigned char *)obfuscatedKey;
 }
 
 @end

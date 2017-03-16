@@ -20,7 +20,8 @@
  
  Method returns smoothie from key and seed
  */
-+ (char *)mixKey:(const char *)key
-        withSeed:(NSString *)seed;
++ (unsigned char *)mixKey:(const unsigned char *)key
+                   ofSize:(size_t)size
+                 withSeed:(NSString *)seed;
 
 @end
