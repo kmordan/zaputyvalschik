@@ -14,15 +14,13 @@
 + (unsigned char *)mixKey:(const unsigned char *)key
                    ofSize:(size_t)size
                  withSeed:(NSString *)seed {
-    size_t nullTerminatedKeySize = size + 1;
-    
-    unsigned char *result = malloc(nullTerminatedKeySize);
+    unsigned char *result = malloc(size);
     unsigned char md[CC_SHA1_DIGEST_LENGTH] = {0};
     
     NSData *seedData = [seed dataUsingEncoding:NSUTF8StringEncoding];
     CC_SHA1(seedData.bytes, (CC_LONG)seedData.length, md);
     
-    for (unsigned long i = 0; i < size; i++) {
+    for (unsigned long i = 0; i <= size; i++) {
         result[i] = key[i] ^ md[i % sizeof(md)];
     }
     

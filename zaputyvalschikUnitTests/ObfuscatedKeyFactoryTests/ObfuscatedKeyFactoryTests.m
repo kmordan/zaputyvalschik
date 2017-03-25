@@ -45,7 +45,7 @@
     // then
     int cmpResult = memcmp(expectedObfuscatedKey, obfuscatedKey, sizeof(expectedObfuscatedKey));
     
-    free((char *)obfuscatedKey);
+    free((unsigned char *)obfuscatedKey);
     
     XCTAssertTrue(cmpResult == 0);
 }

@@ -14,10 +14,8 @@
 + (NSString *)deobfuscateKey:(const unsigned char *)key
                       ofSize:(size_t)size
                    withSeeds:(NSArray<NSString *> *)seeds {
-    size_t nullTerminatedKeySize = size + 1;
-
-    unsigned char *deobfuscatedKey = malloc(nullTerminatedKeySize);
-    memcpy(deobfuscatedKey, key, nullTerminatedKeySize);
+    unsigned char *deobfuscatedKey = malloc(size);
+    memcpy(deobfuscatedKey, key, size);
     
     unsigned char *deobfuscationTempResult = NULL;
     
@@ -25,13 +23,13 @@
         deobfuscationTempResult = [Obfuscator mixKey:(const unsigned char *)deobfuscatedKey
                                               ofSize:size
                                             withSeed:seed];
-        memcpy(deobfuscatedKey, deobfuscationTempResult, nullTerminatedKeySize);
+        memcpy(deobfuscatedKey, deobfuscationTempResult, size);
         
         free(deobfuscationTempResult);
     }
 
     NSString *result = [[NSString alloc] initWithBytes:deobfuscatedKey
-                                                length:nullTerminatedKeySize
+                                                length:size
                                               encoding:NSUTF8StringEncoding];
     
     free(deobfuscatedKey);
