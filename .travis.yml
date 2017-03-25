@@ -1,0 +1,4 @@
+language: objective-c
+script:
+xcodebuild -project zaputyvalschik.xcodeproj -scheme zaputyvalschikUnitTests build-for-testing
+xctool -project zaputyvalschik.xcodeproj -scheme zaputyvalschikUnitTests run-tests
